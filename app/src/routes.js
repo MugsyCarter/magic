@@ -9,13 +9,20 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'home' 
     });
 
-    // $stateProvider.state({
-    //     name: 'play',
-    //     url: '/play',
-    //     data: { public: true },
-    //     component: 'play' 
-    // });
+    $stateProvider.state({
+        name: 'play',
+        url: '/play',
+        data: { public: true },
+        component: 'play' 
+    }); 
 
+    $stateProvider.state({
+        name: 'cards',
+        url: '/cards',
+        data: { public: true },
+        component: 'cards' 
+    }); 
+    
     // $stateProvider.state({
     //     name: 'rules',
     //     url: '/rules',
