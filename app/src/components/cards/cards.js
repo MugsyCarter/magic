@@ -5,5 +5,12 @@ export default {
     controller
 };
 
+controller.$inject = ['cardsService', '$rootScope'];
 
-function controller() {};
+function controller(cards ) {
+
+    cards.getAllCards()
+            .then((cards)=>{
+                console.log(cards);
+            });
+};
