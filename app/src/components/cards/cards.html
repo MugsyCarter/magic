@@ -1,6 +1,9 @@
  <section>
     <h1>Cards Page</h1>
     <div>
-        
+        <div class="card" ng-repeat="card in $ctrl.cards">
+            <h3>{{card.name}}</h3>
+            <image src={{card.imageUrl}} title={{card.name}} /> 
+        </div> 
     </div>
 </section>

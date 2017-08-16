@@ -1,4 +1,4 @@
-shuffleService.$inject = ['$http', 'apiUrl'];
+cardsService.$inject = ['$http', 'apiUrl'];
 
 export default function cardsService($http, apiUrl) {
     return {

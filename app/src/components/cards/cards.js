@@ -11,6 +11,7 @@ function controller(cards ) {
 
     cards.getAllCards()
             .then((cards)=>{
-                console.log(cards);
+                this.cards = cards.cards;
+                console.log(this.cards);
             });
 };
