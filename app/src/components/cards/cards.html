@@ -1,9 +1,23 @@
  <section>
     <h1>Cards Page</h1>
-    <div>
+    
+    <div id="filters">
+        <h2>Colors</h2>
+        <button>White</button>
+        <button>Blue</button>
+        <button>Green</button>
+        <button>Red</button>
+        <button>Black</button>
+        <button>Colorless</button>
+        <h2>Sets</h2>
+        <button>Shadows Over Innistrad</button>
+    <div/>
+
+    <div id="cards">
         <div class="card" ng-repeat="card in $ctrl.cards">
             <h3>{{card.name}}</h3>
             <image src={{card.imageUrl}} title={{card.name}} /> 
         </div> 
     </div>
+
 </section>
