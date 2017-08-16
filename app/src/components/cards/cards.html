@@ -1,16 +1,15 @@
  <section>
     <h1>Cards Page</h1>
-    
+
     <div id="filters">
         <h2>Colors</h2>
-        <button>White</button>
-        <button>Blue</button>
-        <button>Green</button>
-        <button>Red</button>
-        <button>Black</button>
-        <button>Colorless</button>
+
+        <button ng-repeat="color in $ctrl.colorOptions" ng-click="$ctrl.addFilter(color, 'colors')">{{color}}</button>
+      
         <h2>Sets</h2>
-        <button>Shadows Over Innistrad</button>
+        <button ng-repeat="set in $ctrl.setOptions"  ng-click="$ctrl.addFilter(set, 'sets')">{{set.name}}</button>
+        <br>
+        <button ng-click="$ctrl.getCards()">Get Cards</button>
     <div/>
 
     <div id="cards">

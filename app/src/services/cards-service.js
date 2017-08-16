@@ -5,6 +5,12 @@ export default function cardsService($http, apiUrl) {
         getAllCards(){
             	return $http.get(`${apiUrl}`)
                 .then(res=> res.data);
+        },
+  
+        getSet(set){
+            	return $http.get('https://api.magicthegathering.io/v1/sets/' + set)
+                .then(res=> res.data);
         }
+
     };
 }
