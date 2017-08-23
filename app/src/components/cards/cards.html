@@ -12,8 +12,8 @@
         <button ng-click="$ctrl.getCards()">Get Cards</button>
     <div/>
 
-    <div id="cards">
-        <div class="card" ng-repeat="card in $ctrl.cards">
+    <div id="cardGallery">
+        <div id="card" ng-repeat="card in $ctrl.cards">
             <h3>{{card.name}}</h3>
             <image src={{card.imageUrl}} title={{card.name}} /> 
         </div> 
