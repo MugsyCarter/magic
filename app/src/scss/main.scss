@@ -55,8 +55,8 @@ nav:hover #menuIcon{
 
 a:hover{
 //   font-style: italic;
-  cursor: pointer;
-  color: red;
+    cursor: pointer;
+    color: red;
 }
 
 //cards stuff here
@@ -71,17 +71,21 @@ a:hover{
 }
 
 .card{
-    width: 15vw;
-    height: 20vw;
+    //width: 20vw;
+    //height: 20vw;
     //float: left;
     display: inline-block;
+    padding: 0.1vw;
 }  
 
-
-.cardImage:hover{
-    background-color: red;
-    width: 13vw;
-    cursor: pointer;
+.cardImage{
+    border: 0.25vw solid white;
+    width: 15vw;
+    border-radius: 1vw;
+    &:hover{
+        cursor: pointer;
+        border: 0.25vw solid grey;
+    }
 }
 
 #cardName{
