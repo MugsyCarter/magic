@@ -2,6 +2,64 @@
     color: Black
 }
 
+//app stuff here
+
+#menuIcon{
+  position: absolute;
+  height: 5vh;
+  top: 1vw;
+  right: 1vw;
+  padding: 0vh;
+  margin: 0vh;
+  background-color: green;
+}
+
+.main-nav ul{
+  display: none;
+  margin:0 auto;
+  background-color:black;
+  opacity:0.85;
+  list-style: none;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom:1vh solid red;
+}
+
+.link {
+  padding: 1% 5%;
+  text-align: center;
+  font-size: 3vh;
+}
+
+nav:hover ul{
+  display: block;
+}
+
+nav:hover #menuIcon{
+  background-color: white;
+}
+
+.activeLink{
+  color: green;
+}
+
+.branding {
+  color:#FFF;
+  font-size:3vh;
+  font-weight: bold;
+  text-shadow: 3px 4px 4px black;
+}
+
+a:hover{
+//   font-style: italic;
+  cursor: pointer;
+  color: red;
+}
+
+//cards stuff here
 
 .cardGallery{
     //background-image: url("./images/woodBackground.jpg");
@@ -26,3 +84,6 @@
     cursor: pointer;
 }
 
+#cardName{
+    color:white;
+}
