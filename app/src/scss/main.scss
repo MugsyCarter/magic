@@ -2,8 +2,27 @@
     color: Black
 }
 
-#card{
-    width: 15vw,
-    float;
-    display: inline-block  
+
+.cardGallery{
+    //background-image: url("./images/woodBackground.jpg");
+    //background-color: black;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: 100vw;
 }
+
+.card{
+    width: 15vw;
+    height: 20vw;
+    //float: left;
+    display: inline-block;
+}  
+
+
+.cardImage:hover{
+    background-color: red;
+    width: 13vw;
+    cursor: pointer;
+}
+

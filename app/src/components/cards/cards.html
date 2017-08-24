@@ -1,21 +1,21 @@
  <section>
     <h1>Cards Page</h1>
 
-    <div id="filters">
+    <div class="cardFilters">
         <h2>Colors</h2>
 
         <button ng-repeat="color in $ctrl.colorOptions" ng-click="$ctrl.addFilter(color, 'colors')">{{color}}</button>
-      
+  
         <h2>Sets</h2>
         <button ng-repeat="set in $ctrl.setOptions"  ng-click="$ctrl.addFilter(set, 'sets')">{{set.name}}</button>
         <br>
         <button ng-click="$ctrl.getCards()">Get Cards</button>
     <div/>
 
-    <div id="cardGallery">
-        <div id="card" ng-repeat="card in $ctrl.cards">
+    <div class="cardGallery" style="background-image: url('./images/woodBackground.jpg')">
+        <div class="card" ng-repeat="card in $ctrl.cards">
             <h3>{{card.name}}</h3>
-            <image src={{card.imageUrl}} title={{card.name}} /> 
+            <image class="cardImage" src={{card.imageUrl}} title={{card.name}} /> 
         </div> 
     </div>
 
