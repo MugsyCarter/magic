@@ -23,6 +23,12 @@ export default function cardsService($http, apiUrl) {
                 return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set)
                 .then(res=> res.data);
             }
+        },
+
+        getMoreCards(){
+
         }
+
+
     };
 }
