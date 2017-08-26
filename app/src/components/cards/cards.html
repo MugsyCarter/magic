@@ -3,10 +3,10 @@
 
     <div class="cardFilters">
         <h2 class="filterHeading">Colors</h2>
-        <button ng-repeat="color in $ctrl.colorOptions" class="colorFilterButton"  ng-click="$ctrl.addFilter(color, 'colors')"  ng-style="{backgroundColor: color};"></button>
+        <button ng-repeat="color in $ctrl.colorOptions" class="colorFilterButton"  ng-click="$ctrl.addFilter(color, 'colors')"  ng-style="{backgroundColor: color};" ng-class='{"activeColorFilterButton":$ctrl.colors.indexOf(color)!==-1}'></button>
         
         <h2 class="filterHeading" ng-style="{marginLeft: '2vw'};">Sets</h2>
-        <button ng-repeat="set in $ctrl.setOptions"  class="filterButton" ng-click="$ctrl.addFilter(set, 'sets')">{{set.name}}</button>
+        <button ng-repeat="set in $ctrl.setOptions"  class="filterButton" ng-click="$ctrl.addFilter(set, 'sets')" ng-class='{"activeFilterButton":$ctrl.checkSetFilter(set.name)===true}'>{{set.name}}</button>
         <br>
         <br>
         <button ng-click="$ctrl.getCards()">Get Cards</button>

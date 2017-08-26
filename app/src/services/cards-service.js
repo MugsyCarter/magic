@@ -12,10 +12,23 @@ export default function cardsService($http, apiUrl) {
             if (colors.length>0){
                 console.log('got colors');
                 let colorStr = '';
+                let artStr = '';
                 colors.forEach(function(color){
-                    colorStr+= color + '|'; 
+                    if (color === 'colorless'){
+                        artStr = 'type=artifact';
+                    }
+                    else{
+                        colorStr+= color + '|'; 
+                    }
                 });
-                colorStr = colorStr.substring(0, colorStr.length - 1);
+                if (artStr.length > 1 && colorStr.length < 1){
+                    return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set + '&&' + artStr)
+                    .then(res=> res.data);
+                }
+                else if (artStr.length > 1){
+                    colorStr = colorStr.substring(0, colorStr.length - 1);
+                    colorStr += '&&' + artStr;
+                }
             	return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set + '&&colors=' + colorStr)
                 .then(res=> res.data);
             }

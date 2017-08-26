@@ -11,8 +11,17 @@ function controller(cards ) {
     
     this.colorOptions = ['white', 'blue', 'green', 'red', 'black', 'colorless'];
     this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}, {name: 'Aether Revolt', code: 'aer'}, {name: 'Kaladesh', code: 'kld'}, {name: 'Magic Origins', code: 'ori'}, {name: 'Oath of the Gatewatch', code: 'ogw'}, {name: 'Battle for Zendikar', code: 'bfz'}, {name: 'Eldritch Moon', code: 'emn'}];
-    this.sets = [{name: 'Shadows Over Innistrad', code: 'soi'}];
+    this.sets = [];
     this.colors = [];
+
+    this.checkSetFilter = (setName)=>{
+        for (let i =0; i < this.sets.length; i++){
+            if (this.sets[i].name === setName){
+                return true;
+            }
+        }
+        return false;
+    },
 
     this.addFilter = (filter, area)=>{
         console.log(filter, this[area]);
