@@ -10,7 +10,7 @@ controller.$inject = ['cardsService', '$rootScope'];
 function controller(cards ) {
     
     this.colorOptions = ['white', 'blue', 'green', 'red', 'black', 'colorless'];
-    this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}]
+    this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}];
     this.sets = [];
     this.colors = [];
 
@@ -34,7 +34,7 @@ function controller(cards ) {
 
     this.getCards =()=>{
         let setCode = this.sets[0].code;
-        cards.getSomeCards(setCode, colors)
+        cards.getSomeCards(setCode, this.colors)
             .then((cards)=>{
                 console.log('cards are ', cards);
                 this.cards = cards.cards;
