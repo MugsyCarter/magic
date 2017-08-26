@@ -2,6 +2,10 @@
     color: Black
 }
 
+button{
+    cursor: pointer;
+}
+
 //app stuff here
 
 #menuIcon{
@@ -60,6 +64,32 @@ a:hover{
 }
 
 //cards stuff here
+.cardFilters{
+    display: inline-block;
+}
+
+.filterHeading{
+    display: inline-block;
+}
+.filterButton{
+    background-color: grey;
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}
+
+.colorFilterButton{
+    background-color: grey;
+    height: 2vw;
+    width: 2vw;
+    border-radius: 50%;
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}
+
 
 .cardGallery{
     //background-image: url("./images/woodBackground.jpg");
