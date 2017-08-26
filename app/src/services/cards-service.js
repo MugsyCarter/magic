@@ -3,7 +3,7 @@ cardsService.$inject = ['$http', 'apiUrl'];
 export default function cardsService($http, apiUrl) {
     return {
         getAllCards(){
-            	return $http.get(`${apiUrl}`)
+            	return $http.get(`${apiUrl}`+ '/?set=soi')
                 .then(res=> res.data);
         },
   

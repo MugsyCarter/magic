@@ -3,7 +3,7 @@
 
     <div class="cardFilters">
         <h2 class="filterHeading">Colors</h2>
-        <button ng-repeat="color in $ctrl.colorOptions" class="colorFilterButton"  ng-click="$ctrl.addFilter(color, 'colors')"  ng-style="{backgroundColor: color};">{{color}}</button>
+        <button ng-repeat="color in $ctrl.colorOptions" class="colorFilterButton"  ng-click="$ctrl.addFilter(color, 'colors')"  ng-style="{backgroundColor: color};"></button>
         
         <h2 class="filterHeading">Sets</h2>
         <button ng-repeat="set in $ctrl.setOptions"  class="filterButton" ng-click="$ctrl.addFilter(set, 'sets')">{{set.name}}</button>
