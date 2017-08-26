@@ -7,9 +7,7 @@
         
         <h2 class="filterHeading" ng-style="{marginLeft: '2vw'};">Sets</h2>
         <button ng-repeat="set in $ctrl.setOptions"  class="filterButton" ng-click="$ctrl.addFilter(set, 'sets')" ng-class='{"activeFilterButton":$ctrl.checkSetFilter(set.name)===true}'>{{set.name}}</button>
-        <br>
-        <br>
-        <button ng-click="$ctrl.getCards()">Get Cards</button>
+        <button class=actionButton ng-click="$ctrl.getCards()"><h2>Get Cards</h2></button>
     <div/>
 
     <div class="cardGallery" style="background-image: url('./images/woodBackground.png')">

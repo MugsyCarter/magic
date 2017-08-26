@@ -1,11 +1,13 @@
+@import 'colors';
+@import 'buttons';
+
 *{
-    color: Black;
+    color: white;
+    background-color: black;
     font-family: 'Cormorant', serif;
+
 }
 
-button{
-    cursor: pointer;
-}
 
 //app stuff here
 
@@ -72,50 +74,7 @@ a:hover{
 .filterHeading{
     display: inline-block;
 }
-.filterButton{
-    background-color:lightgrey;
-    border-radius: 1vw; 
-    margin: 0.1vw;
-    height: 2vw;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    &:hover{
-        background-color: black;
-        color: white;
-        border: 0.3vw solid gold; 
-    }
-}
 
-.activeFilterButton{
-    background-color: black;
-    color: white;
-    border: 0.3vw solid gold; 
-       &:hover{
-        background-color: lightgrey;
-        color: black;
-        border: none;
-    }
-}
-.colorFilterButton {
-    height: 2vw;
-    width: 2vw;
-    border-radius: 50%;
-    margin: 0.1vw;
-    border: 0.2vw solid black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        &:hover {
-            border: 0.3vw solid gold;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        }
-}   
-
-.activeColorFilterButton{
-    border: 0.3vw solid gold;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        &:hover{
-            border: 0.2vw solid black;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-}
 
 .cardGallery{
     //background-image: url("./images/woodBackground.jpg");
@@ -143,6 +102,7 @@ a:hover{
     &:hover{
         cursor: pointer;
         border: 0.25vw solid grey;
+        transform: scale(1.1); 
     }
 }
 
