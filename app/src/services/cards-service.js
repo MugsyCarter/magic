@@ -14,7 +14,7 @@ export default function cardsService($http, apiUrl) {
                 let colorStr = '';
                 let artStr = '';
                 colors.forEach(function(color){
-                    if (color === 'colorless'){
+                    if (color === 'grey'){
                         artStr = 'type=artifact';
                     }
                     else{

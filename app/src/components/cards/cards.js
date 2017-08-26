@@ -9,7 +9,7 @@ controller.$inject = ['cardsService', '$rootScope'];
 
 function controller(cards ) {
     
-    this.colorOptions = ['white', 'blue', 'green', 'red', 'black', 'colorless'];
+    this.colorOptions = ['white', 'blue', 'green', 'red', 'black', 'grey'];
     this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}, {name: 'Aether Revolt', code: 'aer'}, {name: 'Kaladesh', code: 'kld'}, {name: 'Magic Origins', code: 'ori'}, {name: 'Oath of the Gatewatch', code: 'ogw'}, {name: 'Battle for Zendikar', code: 'bfz'}, {name: 'Eldritch Moon', code: 'emn'}];
     this.sets = [];
     this.colors = [];
