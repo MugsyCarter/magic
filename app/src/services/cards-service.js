@@ -7,10 +7,20 @@ export default function cardsService($http, apiUrl) {
                 .then(res=> res.data);
         },
   
-        getSet(set){
-            	return $http.get('https://api.magicthegathering.io/v1/sets/' + set)
+        getSomeCards(set, colors){
+            if (colors.length>0){
+                return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set)
                 .then(res=> res.data);
+            }
+            else{
+                let colorStr = '';
+                colors.forEach(function(color){
+                    colorStr+= color + ','; 
+                });
+                colorStr = colorStr.substring(0, colorStr.length - 1);
+            	return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set + '&&colors=' + colorStr)
+                .then(res=> res.data);
+            }
         }
-
     };
 }

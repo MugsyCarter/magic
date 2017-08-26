@@ -34,7 +34,7 @@ function controller(cards ) {
 
     this.getCards =()=>{
         let setCode = this.sets[0].code;
-        cards.getSet(setCode)
+        cards.getSomeCards(setCode, colors)
             .then((cards)=>{
                 console.log('cards are ', cards);
                 this.cards = cards.cards;
