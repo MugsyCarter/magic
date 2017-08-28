@@ -8,7 +8,11 @@ export default function cardsService($http, apiUrl) {
         },
   
         getSomeCards(set, colors){
+
             console.log('get some cards called'+ set + colors);
+            // if (set.length <1){
+            //     set = 'soi';
+            // }
             if (colors.length>0){
                 console.log('got colors');
                 let colorStr = '';

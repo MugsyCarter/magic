@@ -45,7 +45,10 @@ function controller(cards ) {
             });
 
     this.getCards =()=>{
-        let setCode = this.sets[0].code;
+        let setCode = 'soi';
+        if (this.sets.length > 0){
+            let setCode = this.sets[0].code;
+        }
         cards.getSomeCards(setCode, this.colors)
             .then((cards)=>{
                 console.log('cards are ', cards);
