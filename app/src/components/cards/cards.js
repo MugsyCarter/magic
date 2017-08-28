@@ -13,6 +13,9 @@ function controller(cards ) {
     this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}, {name: 'Aether Revolt', code: 'aer'}, {name: 'Kaladesh', code: 'kld'}, {name: 'Magic Origins', code: 'ori'}, {name: 'Oath of the Gatewatch', code: 'ogw'}, {name: 'Battle for Zendikar', code: 'bfz'}, {name: 'Eldritch Moon', code: 'emn'}];
     this.sets = [];
     this.colors = [];
+    this.showLands ={
+        value1: true
+    };
 
     this.checkSetFilter = (setName)=>{
         for (let i =0; i < this.sets.length; i++){
@@ -48,9 +51,10 @@ function controller(cards ) {
                 console.log('cards are ', cards);
                 this.cards = cards.cards;
                 console.log(this.cards);
-                if (this.cards.length>=100){
-                    console.log('getting more cards ');
-                }
+                console.log(this.showLands);
+                // if (this.cards.length>=100){
+                //     console.log('getting more cards ');
+                // }
             });
     };
 };

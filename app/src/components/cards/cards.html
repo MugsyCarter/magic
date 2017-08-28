@@ -5,6 +5,9 @@
         <h2 class="filterHeading">Colors</h2>
         <button ng-repeat="color in $ctrl.colorOptions" class="colorFilterButton"  ng-click="$ctrl.addFilter(color, 'colors')"  ng-style="{backgroundColor: color};" ng-class='{"activeColorFilterButton":$ctrl.colors.indexOf(color)!==-1}'></button>
         
+         <h2 class="filterHeading" ng-style="{marginLeft: '2vw'};">Show Lands</h2>
+         <input type="checkbox" name="lands" value="false"  ng-model="$ctrl.showLands.value1"> 
+        checkbox{{$ctrl.showLands.value1}}
         <h2 class="filterHeading" ng-style="{marginLeft: '2vw'};">Sets</h2>
         <button ng-repeat="set in $ctrl.setOptions"  class="filterButton" ng-click="$ctrl.addFilter(set, 'sets')" ng-class='{"activeFilterButton":$ctrl.checkSetFilter(set.name)===true}'>{{set.name}}</button>
         <button class=actionButton ng-click="$ctrl.getCards()">Get Cards</button>
