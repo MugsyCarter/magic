@@ -5,17 +5,30 @@ export default {
     controller
 };
 
-controller.$inject = ['cardsService', '$rootScope'];
+controller.$inject = ['cardsService', 'deckService', '$rootScope'];
 
-function controller(cards ) {
+function controller(cards, deck) {
     
     this.colorOptions = ['white', 'blue', 'green', 'red', 'black', 'grey'];
     this.setOptions = [{name: 'Shadows Over Innistrad', code: 'soi'},{name: 'Amonkhet', code: 'akh'}, {name: 'Aether Revolt', code: 'aer'}, {name: 'Kaladesh', code: 'kld'}, {name: 'Magic Origins', code: 'ori'}, {name: 'Oath of the Gatewatch', code: 'ogw'}, {name: 'Battle for Zendikar', code: 'bfz'}, {name: 'Eldritch Moon', code: 'emn'}];
     this.sets = [];
     this.colors = [];
     this.showLands ={
-        value1: true
+        value: false
     };
+
+    cards.getAllCards()
+        .then((cards)=>{
+            this.cards = cards.cards;
+            console.log(this.cards);
+        });
+
+    deck.getDeck()
+        .then((deck)=>{
+            console.log(deck);
+            this.deck = deck.cards;
+            console.log('the deck is this ', this.deck);
+        });
 
     this.checkSetFilter = (setName)=>{
         for (let i =0; i < this.sets.length; i++){
@@ -38,26 +51,26 @@ function controller(cards ) {
         console.log(this[area]);
     };
 
-    cards.getAllCards()
-            .then((cards)=>{
-                this.cards = cards.cards;
-                console.log(this.cards);
-            });
-
     this.getCards =()=>{
         let setCode = 'soi';
         if (this.sets.length > 0){
-            let setCode = this.sets[0].code;
+            setCode = this.sets[0].code;
         }
         cards.getSomeCards(setCode, this.colors)
             .then((cards)=>{
                 console.log('cards are ', cards);
                 this.cards = cards.cards;
                 console.log(this.cards);
-                console.log(this.showLands);
                 // if (this.cards.length>=100){
                 //     console.log('getting more cards ');
                 // }
             });
+        if (this.showLands.value === true){
+            cards.getLands(this.colors)
+                .then((landCards)=>{
+                    console.log('land cards are ', landCards.cards);
+                    this.cards += landCards.cards;
+                });
+        }
     };
 };

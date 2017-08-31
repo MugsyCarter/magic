@@ -7,7 +7,7 @@ export default function cardsService($http, apiUrl) {
                 .then(res=> res.data);
         },
   
-        getSomeCards(set, colors){
+        getSomeCards(set, colors, lands){
 
             console.log('get some cards called'+ set + colors);
             // if (set.length <1){
@@ -40,6 +40,17 @@ export default function cardsService($http, apiUrl) {
                 return $http.get('https://api.magicthegathering.io/v1/cards/?set=' + set)
                 .then(res=> res.data);
             }
+        },
+
+        getLands(colors){
+            console.log('get lands called for these colors', colors);
+            let landColorStr = '';
+            colors.forEach(function(color){
+                landColorStr+= color + '|'; 
+            });
+            landColorStr = landColorStr.substring(0, landColorStr.length - 1);
+            return $http.get('https://api.magicthegathering.io/v1/cards/?type=land&&colors=' + landColorStr)
+                .then(res=> res.data);
         }
 
 
