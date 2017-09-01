@@ -6,7 +6,7 @@ const errorHandler = require('./error-handler');
 
 // const courses = require('./routes/courses');
 // const auths = require('./routes/auths');
-// const users = require('./routes/users');
+const users = require('./routes/users');
 // const elements = require('./routes/elements');
 // const questions = require('./routes/questions');
 // const lessons= require('./routes/lessons');
@@ -26,7 +26,7 @@ app.use(express.static('./public'));
 
 // app.use('/api/questions', questions);
 // app.use('/api/auths', auths);
-// app.use('/api/users', users);
+app.use('/api/users', users);
 // app.use('/api/courses', courses);
 // app.use('/api/elements', elements);
 // app.use('/api/lessons', lessons);
