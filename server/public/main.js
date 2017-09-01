@@ -34689,8 +34689,8 @@
 	        });
 	        if (_this.showLands.value === true) {
 	            cards.getLands(_this.colors).then(function (landCards) {
-	                console.log('land cards are ', landCards.cards);
-	                _this.cards += landCards.cards;
+	                console.log('land cards are ', landCards);
+	                _this.cards = _this.cards.concat(landCards.cards);
 	            });
 	        }
 	    };
@@ -34700,7 +34700,7 @@
 /* 15 */
 /***/ (function(module, exports) {
 
-	module.exports = " <section>\n    <h1>Cards Page</h1>\n\n    <div class=\"cardFilters\">\n        <h2 class=\"filterHeading\">Colors</h2>\n        <button ng-repeat=\"color in $ctrl.colorOptions\" class=\"colorFilterButton\"  ng-click=\"$ctrl.addFilter(color, 'colors')\"  ng-style=\"{backgroundColor: color};\" ng-class='{\"activeColorFilterButton\":$ctrl.colors.indexOf(color)!==-1}'></button>\n        \n         <h2 class=\"filterHeading\" ng-style=\"{marginLeft: '2vw'};\">Show Lands</h2>\n         <input type=\"checkbox\" name=\"lands\" value=\"false\"  ng-model=\"$ctrl.showLands.value\"> \n        <h2 class=\"filterHeading\" ng-style=\"{marginLeft: '2vw'};\">Sets</h2>\n        <button ng-repeat=\"set in $ctrl.setOptions\"  class=\"filterButton\" ng-click=\"$ctrl.addFilter(set, 'sets')\" ng-class='{\"activeFilterButton\":$ctrl.checkSetFilter(set.name)===true}'>{{set.name}}</button>\n        <button class=actionButton ng-click=\"$ctrl.getCards()\">Get Cards</button>\n    <div/>\n\n    <div class=\"cardGallery\" style=\"background-image: url('./images/woodBackground.png')\">\n        <div class=\"card\" ng-repeat=\"card in $ctrl.cards\">\n            <!--<h3 id=\"cardName\">{{card.name}}</h3>-->\n            <image class=\"cardImage\" src={{card.imageUrl}} title={{card.name}} /> \n        </div> \n    </div>\n\n    <div class=\"deck\">\n        <div class=\"card\" ng-repeat=\"card in $ctrl.deck\">\n            <image class=\"cardImage\" src={{card.imageUrl}} title={{card.name}}/>\n        </div>\n    </div>\n\n</section>";
+	module.exports = " <section>\n    <h1>Cards Page</h1>\n\n    <div class=\"cardFilters\">\n        <h2 class=\"filterHeading\">Colors</h2>\n        <button ng-repeat=\"color in $ctrl.colorOptions\" class=\"colorFilterButton\"  ng-click=\"$ctrl.addFilter(color, 'colors')\"  ng-style=\"{backgroundColor: color};\" ng-class='{\"activeColorFilterButton\":$ctrl.colors.indexOf(color)!==-1}'></button>\n        \n         <h2 class=\"filterHeading\" ng-style=\"{marginLeft: '2vw'};\">Show Lands</h2>\n         <input type=\"checkbox\" name=\"lands\" value=\"false\"  ng-model=\"$ctrl.showLands.value\"> \n        <h2 class=\"filterHeading\" ng-style=\"{marginLeft: '2vw'};\">Sets</h2>\n        <button ng-repeat=\"set in $ctrl.setOptions\"  class=\"filterButton\" ng-click=\"$ctrl.addFilter(set, 'sets')\" ng-class='{\"activeFilterButton\":$ctrl.checkSetFilter(set.name)===true}'>{{set.name}}</button>\n        <button class=actionButton ng-click=\"$ctrl.getCards()\">Get Cards</button>\n    <div/>\n\n    <div class=\"cardGallery\" style=\"background-image: url('./images/woodBackground.png')\">\n        <div class=\"card\" ng-repeat=\"card in $ctrl.cards\">\n            <!--<h3 id=\"cardName\">{{card.name}}</h3>-->\n            <image class=\"cardImage\" src={{card.imageUrl}} title={{card.name}} /> \n        </div> \n    </div>\n\n    <!-- <div class=\"deck\">\n        <div class=\"card\" ng-repeat=\"card in $ctrl.deck\">\n            <image class=\"cardImage\" src={{card.imageUrl}} title={{card.name}}/>\n        </div>\n    </div> -->\n\n</section>";
 
 /***/ }),
 /* 16 */
@@ -34842,12 +34842,11 @@
 	function cardsService($http, apiUrl) {
 	    return {
 	        getAllCards: function getAllCards() {
-	            return $http.get('' + apiUrl + '/?set=soi').then(function (res) {
+	            return $http.get('https://api.magicthegathering.io/v1/cards/?set=soi').then(function (res) {
 	                return res.data;
 	            });
 	        },
 	        getSomeCards: function getSomeCards(set, colors, lands) {
-	
 	            console.log('get some cards called' + set + colors);
 	            // if (set.length <1){
 	            //     set = 'soi';
@@ -34884,10 +34883,11 @@
 	            console.log('get lands called for these colors', colors);
 	            var landColorStr = '';
 	            colors.forEach(function (color) {
-	                landColorStr += color + '|';
+	                landColorStr += color[0].toUpperCase() + '|';
 	            });
-	            landColorStr = landColorStr.substring(0, landColorStr.length - 1);
-	            return $http.get('https://api.magicthegathering.io/v1/cards/?type=land&&colors=' + landColorStr).then(function (res) {
+	            // landColorStr = landColorStr.substring(0, landColorStr.length - 1);
+	            console.log('calling this for lands   https://api.magicthegathering.io/v1/cards/?type=Land');
+	            return $http.get('https://api.magicthegathering.io/v1/cards/?type=Land').then(function (res) {
 	                return res.data;
 	            });
 	        }

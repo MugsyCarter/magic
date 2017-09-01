@@ -3,12 +3,11 @@ cardsService.$inject = ['$http', 'apiUrl'];
 export default function cardsService($http, apiUrl) {
     return {
         getAllCards(){
-            	return $http.get(`${apiUrl}`+ '/?set=soi')
+            	return $http.get('https://api.magicthegathering.io/v1/cards/?set=soi')
                 .then(res=> res.data);
         },
   
         getSomeCards(set, colors, lands){
-
             console.log('get some cards called'+ set + colors);
             // if (set.length <1){
             //     set = 'soi';
@@ -46,10 +45,11 @@ export default function cardsService($http, apiUrl) {
             console.log('get lands called for these colors', colors);
             let landColorStr = '';
             colors.forEach(function(color){
-                landColorStr+= color + '|'; 
+                landColorStr+= color[0].toUpperCase() + '|'; 
             });
-            landColorStr = landColorStr.substring(0, landColorStr.length - 1);
-            return $http.get('https://api.magicthegathering.io/v1/cards/?type=land&&colors=' + landColorStr)
+            // landColorStr = landColorStr.substring(0, landColorStr.length - 1);
+            console.log('calling this for lands   https://api.magicthegathering.io/v1/cards/?type=Land');
+            return $http.get('https://api.magicthegathering.io/v1/cards/?type=Land')
                 .then(res=> res.data);
         }
 

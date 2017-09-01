@@ -68,8 +68,8 @@ function controller(cards, deck) {
         if (this.showLands.value === true){
             cards.getLands(this.colors)
                 .then((landCards)=>{
-                    console.log('land cards are ', landCards.cards);
-                    this.cards += landCards.cards;
+                    console.log('land cards are ', landCards);
+                    this.cards = this.cards.concat(landCards.cards);
                 });
         }
     };
